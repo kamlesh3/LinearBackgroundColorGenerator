@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BackgroundColorGenerator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        #bog {
+            background: linear-gradient(to right, red, rgb(197, 197, 44));
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            font-size: 30px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: white;
+        }
+        
+        input {
+            margin-left: 50px;
+        }
+    </style>
+
+</head>
+
+<body id="bog">
+
+    <div class="container">
+        <h2>Backgroung Colour Generator</h2><br>
+        <h3>Pick Colour:</h3>
+        <input type="color" id="colone" name="" value="">
+        <input type="color" id="coltwo" name="" value="">
+        <br>
+        <br>
+        <h4 id="pick">
+        </h4>
+    </div>
+
+    <script>
+        var colorfirst = document.getElementById('colone');
+        var colorsecond = document.getElementById('coltwo');
+        var bodybg = document.getElementById('bog');
+        var colorcode = document.getElementById('pick');
+
+        function setbgcolor() {
+            bodybg.style.background = `linear-gradient(to right, ${colorfirst.value}, ${colorsecond.value})`;
+            colorcode.textContent = `Copy color code:linear-gradient(to left, ${colorfirst.value}, ${colorsecond.value})`;
+        }
+        colorfirst.addEventListener('input', setbgcolor);
+        colorsecond.addEventListener('input', setbgcolor);
+    </script>
+</body>
+
+</html>
